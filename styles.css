@@ -1,0 +1,480 @@
+/* Global Settings */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier', 'Courier New', Courier, monospace;
+    background-color: transparent; /* Transparent background to show the hexagon grid */
+    color: #333;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+/* Container for Hexagon Grid Background */
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: -1; /* Ensure the grid is behind all content */
+}
+
+/* Eye Animation (Loading) */
+#eye-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e0e52;
+    z-index: 1000;
+    animation: fadeOut 2s 5s forwards; /* Fade out after 5 seconds */
+}
+
+/* Eye Animation Details */
+.eye {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #b0d4f1 0%, #5daeff 50%, #002b5c 100%);
+    animation: zoomIn 1.5s ease, glow 3s ease-in-out infinite;
+}
+
+.eye-white {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.iris {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #00509e 0%, #00102a 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: irisMove 4s infinite ease-in-out;
+}
+
+.pupil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pupilDilation 4s infinite ease-in-out;
+}
+
+.eye-lid {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #002b5c;
+    transform-origin: center;
+    animation: blink 6s infinite ease;
+}
+
+.eye-lid.top {
+    top: 0;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+}
+
+.eye-lid.bottom {
+    bottom: 0;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+}
+
+/* Keyframes for Eye Animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(255, 255, 255, 1);
+    }
+}
+
+@keyframes irisMove {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        transform: translate(-60%, -60%);
+    }
+    50% {
+        transform: translate(-40%, -40%);
+    }
+    75% {
+        transform: translate(-50%, -70%);
+    }
+}
+
+@keyframes pupilDilation {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+@keyframes blink {
+    0%, 90%, 100% {
+        height: 50%;
+    }
+    95% {
+        height: 0;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Navigation Bar */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #0e0e52;
+    padding: 15px;
+    text-align: center;
+    z-index: 999;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar ul li {
+    margin: 0 15px;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+#navbar ul li a:hover {
+    color: #ffa500;
+}
+
+/* Main Content - Horizontal Scrolling */
+#main-content {
+    position: relative;
+    z-index: 1; /* Make sure main content is above the grid */
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+/* Section Styling */
+.section {
+    flex: 0 0 100vw;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: transparent;
+    position: relative;
+}
+
+/* Section Background Colors */
+#home {
+    background-color: transparent; /* Transparent to see the hexagon grid */
+}
+
+#about, #services, #staff, #apply, #contact {
+    background-color: transparent; /* Ensure other sections are transparent too */
+}
+
+/* Text Content */
+.text-content {
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    font-family:  'Courier', 'Courier New', Courier, monospace;
+    z-index: 2; /* Ensures text appears above grid */
+}
+
+.text-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animated-text {
+    margin-bottom: 20px;
+    font-family: 'Courier', 'Courier New', Courier, monospace;
+    animation: fadeInText 1.5s ease-in-out forwards;
+    color: white;
+}
+
+p.animated-text {
+    font-family: 'Courier', 'Courier New', Courier, monospace;
+    animation: fadeInText 2s ease-in-out forwards;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #f4f4f4;
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Cursor */
+html,
+body {
+    cursor: none;
+}
+
+.cursor-dot,
+.cursor-dot-outline {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #07d7e2;
+}
+
+.cursor-dot-outline {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(2, 231, 243);
+}
+
+.cursor-dot.visible,
+.cursor-dot-outline.visible {
+    opacity: 1;
+}
+
+/* Mail Animation */
+.letter-image {
+    position: relative;
+    margin: 30px auto;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.animated-mail {
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    transition: .4s;
+}
+
+.animated-mail .body {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 100px 200px;
+    border-color: transparent transparent #e95f55 transparent;
+    z-index: 2;
+}
+
+.animated-mail .top-fold {
+    position: absolute;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 100px 0 100px;
+    transform-origin: 50% 0%;
+    transition: transform .4s .4s, z-index .2s .4s;
+    border-color: #cf4a43 transparent transparent transparent;
+    z-index: 2;
+}
+
+.animated-mail .back-fold {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+    background: #cf4a43;
+    z-index: 0;
+}
+
+.animated-mail .left-fold {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 0 50px 100px;
+    border-color: transparent transparent transparent #e15349;
+    z-index: 2;
+}
+
+.animated-mail .letter {
+    left: 20px;
+    bottom: 0px;
+    position: absolute;
+    width: 160px;
+    height: 60px;
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    transition: .4s .2s;
+}
+
+.animated-mail .letter .letter-border {
+    height: 10px;
+    width: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      #cb5a5e,
+      #cb5a5e 8px,
+      transparent 8px,
+      transparent 18px
+    );
+}
+
+.animated-mail .letter .letter-title {
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 10px;
+    width: 40%;
+    background: #cb5a5e;
+}
+
+.animated-mail .letter .letter-context {
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 10px;
+    width: 20%;
+    background: #cb5a5e;
+}
+
+.animated-mail .letter .letter-stamp {
+    margin-top: 30px;
+    margin-left: 120px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    background: #cb5a5e;
+    opacity: 0.3;
+}
+
+.shadow {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 400px;
+    height: 30px;
+    transition: .4s;
+    transform: translateX(-50%);
+    border-radius: 100%;
+    background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+}
+
+.letter-image:hover .animated-mail {
+    transform: translateY(50px);
+}
+
+.letter-image:hover .animated-mail .top-fold {
+    transition: transform .4s, z-index .2s;
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.letter-image:hover .animated-mail .letter {
+    height: 180px;
+}
+
+.letter-image:hover .shadow {
+    width: 250px;
+}
+
+
+@keyframes shakeGrid {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-1px, 1px); }
+    20% { transform: translate(2px, -2px); }
+    30% { transform: translate(-3px, 3px); }
+    40% { transform: translate(3px, -3px); }
+    50% { transform: translate(-3px, 3px); }
+    60% { transform: translate(2px, -2px); }
+    70% { transform: translate(-1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+    90% { transform: translate(-1px, 1px); }
+    100% { transform: translate(0, 0); }
+}
+
+.responsive-img {
+    max-width: 100%;  /* Ensures image scales down relative to its container */
+    height: auto;  /* Maintains aspect ratio */
+    width: 200px;  /* Set a specific width */
+    height: 200px; /* Set a specific height */
+    object-fit: cover; /* Ensures the image covers the entire container */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+p.a {
+    font: 15px Arial, sans-serif;
+  }
+  
+  p.b {
+    font: italic small-caps bold 12px/30px Georgia, serif;
+  }
