@@ -3,10 +3,21 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Courier', 'Courier New', Courier, monospace;
-    background-color: transparent;
+    background-color: #0e0e52;
     color: #333;
     overflow-x: hidden;
     height: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .text-content {
+        transform: translateY(0);
+    }
+    .stage {
+        width: 300px;
+        height: 200px;
+    }
 }
 
 /* Container for Hexagon Grid Background */
@@ -246,30 +257,16 @@ body, html {
 }
 
 .animated-text {
-    
     margin-bottom: 20px;
     font-family: 'Courier', 'Courier New', Courier, monospace;
-    animation:  1.5s ease-in-out forwards;
     color: white;
 }
 
 p.animated-text {
     font-family: 'Courier', 'Courier New', Courier, monospace;
-    animation: 2s ease-in-out forwards;
     font-size: 18px;
     line-height: 1.6;
     color: #f4f4f4;
-}
-
-@keyframes fadeInText {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Custom Cursor */
@@ -448,21 +445,6 @@ body {
     width: 250px;
 }
 
-
-@keyframes shakeGrid {
-    0% { transform: translate(0, 0); }
-    10% { transform: translate(-1px, 1px); }
-    20% { transform: translate(2px, -2px); }
-    30% { transform: translate(-3px, 3px); }
-    40% { transform: translate(3px, -3px); }
-    50% { transform: translate(-3px, 3px); }
-    60% { transform: translate(3px, -3px); }
-    70% { transform: translate(-3px, 3px); }
-    80% { transform: translate(2px, -2px); }
-    90% { transform: translate(-1px, 1px); }
-    100% { transform: translate(0, 0); }
-}
-
 /* Additional Section Styles */
 .staff-grid {
     display: flex;
@@ -529,7 +511,6 @@ body {
     transform-style: preserve-3d;
     animation: ಠ_ಠ 5s infinite alternate ease-in-out -7.5s;
     animation-fill-mode: forwards;
-    /* Adjust the rotation and translate values to center it more */
     transform: rotateY(80deg) rotateX(0deg) translate(0%, 0%);
 }
 
@@ -541,14 +522,12 @@ body {
     height: 50%;
     width: 50%;
     position: absolute;
-    /* Move the text up and to the left */
     top: -250px; 
     left: -50px;
     color: whitesmoke;
     letter-spacing: -2px;
     text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
 }
-
 
 .layer:nth-child(1):after {
     transform: translateZ(0px);
