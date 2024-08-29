@@ -1,16 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Show main content after eye animation
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById('main-content').style.display = 'flex';
     }, 5000); // 5 seconds delay
 
     // Navigation smooth scroll
     document.querySelectorAll('#navbar a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -111,20 +114,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Hexagon Background Animation
+    // Hexagon Background Animation Logic
     var RENDERER = {
         RESIZE_INTERVAL: 30,
         RADIUS: 25,
         RATE: 0.98,
 
-        init: function() {
+        init: function () {
             this.setParameters();
             this.setup();
             this.bindEvent();
             this.render();
         },
 
-        setParameters: function() {
+        setParameters: function () {
             this.$container = document.getElementById('jsi-hex-container');
             this.canvas = document.createElement('canvas');
             this.context = this.canvas.getContext('2d');
@@ -133,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
             this.resizeIds = [];
         },
 
-        setup: function() {
+        setup: function () {
             this.hexagons.length = 0;
             this.resizeIds.length = 0;
             this.width = this.$container.offsetWidth;
@@ -143,16 +146,19 @@ document.addEventListener("DOMContentLoaded", function() {
             this.createHexagons();
         },
 
-        getRandomValue: function(min, max) {
+        getRandomValue: function (min, max) {
             return min + (max - min) * Math.random() | 0;
         },
 
-        createHexagons: function() {
+        createHexagons: function () {
             this.radius = this.RADIUS * this.RATE;
             this.vertices = [];
 
             for (var i = 0; i < 6; i++) {
-                this.vertices.push({ x: this.radius * Math.sin(Math.PI / 3 * i), y: -this.radius * Math.cos(Math.PI / 3 * i) });
+                this.vertices.push({
+                    x: this.radius * Math.sin(Math.PI / 3 * i),
+                    y: -this.radius * Math.cos(Math.PI / 3 * i)
+                });
             }
             this.vertices.push(this.vertices[0]);
             this.hexWidth = this.RADIUS * Math.cos(Math.PI / 6) * 2;
@@ -196,21 +202,21 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         },
 
-        bindEvent: function() {
+        bindEvent: function () {
             window.addEventListener('resize', this.watchWindowSize.bind(this));
             setInterval(() => {
                 this.selectRandomHexagon();
-            }, 1500); // Adjust the interval as needed
+            }, 1500);
         },
 
-        selectRandomHexagon: function() {
+        selectRandomHexagon: function () {
             const randomHex = this.hexagons[Math.floor(Math.random() * this.hexagons.length)];
             if (randomHex) {
                 randomHex.select();
             }
         },
 
-        watchWindowSize: function() {
+        watchWindowSize: function () {
             while (this.resizeIds.length > 0) {
                 clearTimeout(this.resizeIds.pop());
             }
@@ -219,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
             this.resizeIds.push(setTimeout(this.jdugeToStopResize.bind(this), this.RESIZE_INTERVAL));
         },
 
-        jdugeToStopResize: function() {
+        jdugeToStopResize: function () {
             var width = window.innerWidth,
                 height = window.innerHeight,
                 stopped = (width == this.tmpWidth && height == this.tmpHeight);
@@ -232,10 +238,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         },
 
-        render: function() {
+        render: function () {
             requestAnimationFrame(this.render.bind(this));
 
-            this.context.clearRect(0, 0, this.width, this.height); // Clear the canvas
+            this.context.clearRect(0, 0, this.width, this.height);
             this.context.fillStyle = 'rgba(0, 0, 50, 100)';
             this.context.fillRect(0, 0, this.width, this.height);
 
@@ -245,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    var HEXAGON = function(renderer, x, y) {
+    var HEXAGON = function (renderer, x, y) {
         this.renderer = renderer;
         this.x = x;
         this.y = y;
@@ -256,22 +262,22 @@ document.addEventListener("DOMContentLoaded", function() {
         COUNT: { MIN: 5, MAX: 30 },
         LUMINANCE: { MIN: 10, MAX: 300 },
 
-        init: function() {
+        init: function () {
             this.selections = [];
             this.neighbors = new Array(6);
             this.sourceIndices = [];
         },
 
-        select: function() {
+        select: function () {
             this.hue = this.renderer.getRandomValue(100, 300);
             this.selections.push({ count: 0, hue: this.hue });
         },
 
-        relate: function(sourceIndices) {
+        relate: function (sourceIndices) {
             this.sourceIndices.push(sourceIndices);
         },
 
-        draw: function(context, targets) {
+        draw: function (context, targets) {
             for (var i = 0; i < targets.length; i++) {
                 var target = targets[i],
                     fillLuminance = 0,
@@ -294,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         },
 
-        render: function(context) {
+        render: function (context) {
             context.save();
             context.globalCompositeOperation = 'lighter';
             context.translate(this.x, this.y);
