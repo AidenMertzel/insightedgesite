@@ -3,13 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insight Edge Consulting</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
     <!-- Eye Animation (Loading) -->
     <div id="eye-animation">
         <div class="eye">
@@ -37,7 +40,7 @@
 
     <!-- Main Content (Horizontal Scrolling) -->
     <div id="main-content" style="display: none;">
-        <section id="home" class="section">
+            <section id="home" class="section">
             <div class="grid-overlay"></div>
             <div class="text-content">
                 <div class="center-title">
@@ -71,12 +74,45 @@
                     Insight Edge Consulting is here to provide expert guidance and strategic support tailored to each client’s needs. Together, we make a difference—one small business at a time.</p>
                 <img src="assets/logo.png" alt="Insight Edge Logo" class="responsive-img">
             </div>
-        </section>
+            </section>
 
+        <div id="eye-buddy">
+            <div class="eye">
+                <div class="eye-white">
+                    <div class="iris">
+                        <div class="pupil"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <section id="about" class="section">
             <div class="grid-overlay"></div>
             <div class="text-content">
-                <h1 class="animated-text">About Us</h1>
+                <div class="center-title">
+                    <div class="stage">
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+                <div class="layerAbout"></div>
+            </div>
+        </div>
                 <p class="animated-text">At Insight Edge Consulting, we are dedicated to empowering small businesses to thrive in a competitive world. We believe that size should never be a barrier to success, and that’s why we tailor our consulting services specifically for small companies and startups. Our mission is to provide the strategic insights and innovative solutions that drive growth, streamline operations, and unlock new opportunities—all without the hefty price tag of traditional consulting firms.
 
                     We understand the unique challenges that small businesses face, from limited resources to navigating complex market dynamics. Our approach is hands-on and personalized, ensuring that every recommendation we make is actionable, impactful, and aligned with your business goals. Whether you’re looking to optimize processes, explore new markets, or simply need a fresh perspective, Insight Edge Consulting is here to partner with you every step of the way.
@@ -88,7 +124,29 @@
         <section id="services" class="section">
             <div class="grid-overlay"></div>
             <div class="text-content">
-                <h1 class="animated-text">Our Services</h1>
+                <div class="center-title">
+                    <div class="stage">
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                        <div class="layerServices"></div>
+                    </div></div>
                 <p class="animated-text">
                     At Insight Edge Consulting, we specialize in providing tailored consulting services that empower small businesses to reach their full potential. Our team of experienced consultants works closely with clients to develop innovative strategies that drive growth, optimize processes, and navigate complex business challenges. We look for passionate, driven businesses that are ready to take the next step in their journey. Below are some of the key services we offer:
                 </p>
@@ -166,7 +224,7 @@
 
         <section id="contact" class="section">
             <div class="grid-overlay"></div>
-            <div class="text-content">
+            <div class="text-content"></div>          
                 <h1 class="animated-text">Contact Us</h1>
                 <div class="letter-image">
                     <div class="animated-mail">
@@ -196,6 +254,9 @@
 
     <!-- Hexagon Background -->
     <div id="jsi-hex-container" class="container"></div>
+
+    <!-- Walking Eye Buddy -->
+    <div id="eye-buddy" class="eye-buddy"></div>
 
     <!-- Link to your JavaScript file -->
     <script src="main.js"></script>
