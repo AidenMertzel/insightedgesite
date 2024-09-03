@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('main-content').style.display = 'flex';
     }, 5000); // 5 seconds delay
 
+
+    
+
+
     // Navigation smooth scroll
     document.querySelectorAll('#navbar a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -16,6 +20,37 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    window.onscroll = function() {
+        var navbar = document.getElementById('navbar');
+        if (window.pageYOffset > 50) {
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+    };
+    // Eye Buddy Movement Logic
+    const eyeBuddy = document.createElement('div');
+    eyeBuddy.className = 'eye-buddy';
+    document.body.appendChild(eyeBuddy);
+    let mouseX = 0, mouseY = 0, eyeX = 0, eyeY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    });
+
+    function moveEyeBuddy() {
+        eyeX += (mouseX - eyeX) / 10;
+        eyeY += (mouseY - eyeY) / 10;
+
+        eyeBuddy.style.left = eyeX + 'px';
+        eyeBuddy.style.top = eyeY + 'px';
+
+        requestAnimationFrame(moveEyeBuddy);
+    }
+
+    moveEyeBuddy();
 
     // Activate grid-to-neon transition on scroll
     const sections = document.querySelectorAll('.section');
@@ -45,11 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('mousemove', (e) => {
         cursorVisible = true;
         toggleCursorVisibility();
-
         endX = e.pageX;
         endY = e.pageY;
-        cursorDot.style.top = endY + 'px';
-        cursorDot.style.left = endX + 'px';
+        cursorDot.style.top = `${endY}px`;
+        cursorDot.style.left = `${endX}px`;
+        cursorDotOutline.style.top = `${endY}px`;
+        cursorDotOutline.style.left = `${endX}px`;
     });
 
     document.addEventListener('mouseenter', () => {
@@ -62,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleCursorVisibility();
     });
 
-    document.querySelectorAll('a').forEach(el => {
+    document.querySelectorAll('a, button').forEach(el => {
         el.addEventListener('mouseover', () => {
             cursorEnlarged = true;
             toggleCursorSize();
@@ -86,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function animateCursor() {
         _x += (endX - _x) / 8;
         _y += (endY - _y) / 8;
-        cursorDotOutline.style.top = _y + 'px';
-        cursorDotOutline.style.left = _x + 'px';
+        cursorDotOutline.style.top = `${_y}px`;
+        cursorDotOutline.style.left = `${_x}px`;
 
         requestAnimationFrame(animateCursor);
     }
@@ -96,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleCursorSize() {
         if (cursorEnlarged) {
-            cursorDot.style.transform = 'translate(-50%, -50%) scale(0.75)';
+            cursorDot.style.transform = 'translate(-50%, -50%) scale(1.2)';
             cursorDotOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
         } else {
             cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
@@ -113,6 +149,27 @@ document.addEventListener("DOMContentLoaded", function () {
             cursorDotOutline.classList.remove('visible');
         }
     }
+});
+
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides[currentSlide].classList.remove("slide-enter-active");
+    slides[currentSlide].classList.add("slide-exit-active");
+
+    slides[index].classList.remove("slide-enter");
+    slides[index].classList.add("slide-enter-active");
+
+    currentSlide = index;
+}
+
+document.querySelectorAll("nav a").forEach((navLink, index) => {
+    navLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        showSlide(index);
+    });
+});
 
     // Hexagon Background Animation Logic
     var RENDERER = {
@@ -358,4 +415,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     initHexGrid();
-});
+
