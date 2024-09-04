@@ -1,265 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insight Edge Consulting</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
 </head>
-
 <body>
-    <!-- Eye Animation (Loading) -->
-    <div id="eye-animation">
-        <div class="eye">
-            <div class="eye-white">
-                <div class="iris">
-                    <div class="pupil"></div>
+
+<div id="eye-animation">
+    <div class="eye">
+        <div class="eye-white">
+            <div class="iris">
+                <div class="pupil"></div>
+            </div>
+        </div>
+        <div class="eye-lid top"></div>
+        <div class="eye-lid bottom"></div>
+    </div>
+</div>
+
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s2">
+      <a href="#home" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#services" class="w3-button w3-block w3-black">SERVICES</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#staff" class="w3-button w3-block w3-black">STAFF</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#apply" class="w3-button w3-block w3-black">APPLY</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#contact" class="w3-button w3-block w3-black">CONTACT</a>
+    </div>
+  </div>
+</div>
+
+<header class="bgimg" id="home">
+    
+    </div>
+    <div class="w3-display-middle w3-center">
+      <span class="animated-title">Insight<br>Edge</span>
+  </header>
+  
+
+<div class="w3-sand w3-grayscale w3-large">
+    <div class="w3-container w3-sand w3-padding-64" id="about">
+        <div class="w3-content w3-center" style="max-width: 900px;">
+            <!-- Add the logo image here -->
+            <div class="w3-center w3-margin-bottom">
+                <img src="assets/logo.png" alt="Insight Edge Logo" style="width: 150px; height: auto;">
+            </div>
+            
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT INSIGHT EDGE</span></h5>
+            
+            <p class="w3-large">At Insight Edge Consulting, we are committed to empowering small businesses with innovative and affordable consulting services. Our approach focuses on helping startups and established businesses grow and thrive by providing expert guidance tailored to their unique needs.</p>
+            
+            <div class="w3-panel w3-leftbar w3-light-grey w3-animate-left">
+                <p><i>"Innovation, growth, and success tailored for every business, no matter the size."</i></p>
+                <p>- Insight Edge Team</p>
+            </div>
+    
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-third w3-card w3-hover-shadow">
+                    <div class="w3-container">
+                        <h3>Our Mission</h3>
+                        <p>We aim to provide cutting-edge strategies that drive growth and innovation, allowing small businesses to compete effectively in today’s dynamic market.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-card w3-hover-shadow">
+                    <div class="w3-container">
+                        <h3>Our Vision</h3>
+                        <p>To be the most trusted consulting partner for small businesses worldwide, renowned for our dedication to client success and innovation.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-card w3-hover-shadow">
+                    <div class="w3-container">
+                        <h3>Our Values</h3>
+                        <p>Integrity, innovation, and customer-focused solutions drive us to deliver results that matter for our clients.</p>
+                    </div>
                 </div>
             </div>
-            <div class="eye-lid top"></div>
-            <div class="eye-lid bottom"></div>
         </div>
     </div>
+</div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#staff">Staff</a></li>
-            <li><a href="#apply">Apply</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  
 
-    <!-- Main Content (Horizontal Scrolling) -->
-    <div id="main-content" style="display: none;">
-            <section id="home" class="section">
-            <div class="grid-overlay"></div>
-            <div class="text-content">
-                <div class="center-title">
-                    <div class="stage">
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                        <div class="layer"></div>
-                    </div>
+  <div class="w3-sand w3-grayscale w3-large">
+    <div class="w3-container w3-sand w3-padding-64" id="about">
+    <div class="w3-content" style="max-width:700px">
+        <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">OUR SERVICES</span></h5>
+        <div class="w3-row-padding w3-center w3-margin-top">
+            <div class="w3-col m6">
+                <div class="w3-card-4 w3-white w3-padding w3-hover-shadow">
+                    <h3 class="w3-wide">Business Strategy Development</h3>
+                    <p>We help you develop a clear, actionable strategy that aligns with your business goals, ensuring a roadmap to sustainable success.</p>
                 </div>
-                <h1 class="animated-text">Welcome to Insight Edge</h1>
-                <p class="animated-text">Insight Edge Consulting is dedicated to empowering small businesses by offering top-tier consulting services without the financial burden of traditional fees. Our mission is to drive innovation and support community 
-                    growth by identifying and addressing the unique challenges faced by small companies. At Insight Edge, we specialize in growth opportunities, process optimization, and implementing innovative solutions that help businesses reach their full potential.
-                     Whether it’s a startup looking to build a strong foundation or a family-owned business aiming to modernize and expand, 
-                    Insight Edge Consulting is here to provide expert guidance and strategic support tailored to each client’s needs. Together, we make a difference—one small business at a time.</p>
-                <img src="assets/logo.png" alt="Insight Edge Logo" class="responsive-img">
             </div>
-            </section>
-
-        <div id="eye-buddy">
-            <div class="eye">
-                <div class="eye-white">
-                    <div class="iris">
-                        <div class="pupil"></div>
-                    </div>
+            <div class="w3-col m6">
+                <div class="w3-card-4 w3-white w3-padding w3-hover-shadow">
+                    <h3 class="w3-wide">Market Analysis and Research</h3>
+                    <p>In-depth market research to identify opportunities, understand competition, and make data-driven decisions that propel you forward.</p>
                 </div>
             </div>
         </div>
-        
-        <section id="about" class="section">
-            <div class="grid-overlay"></div>
-            <div class="text-content">
-                <div class="center-title">
-                    <div class="stage">
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
-                <div class="layerAbout"></div>
+
+        <div class="w3-row-padding w3-center w3-margin-top">
+            <div class="w3-col m6">
+                <div class="w3-card-4 w3-white w3-padding w3-hover-shadow">
+                    <h3 class="w3-wide">Process Optimization</h3>
+                    <p>Efficiency is at the heart of every successful business. We optimize your processes to improve productivity and reduce costs.</p>
+                </div>
+            </div>
+            <div class="w3-col m6">
+                <div class="w3-card-4 w3-white w3-padding w3-hover-shadow">
+                    <h3 class="w3-wide">Digital Transformation</h3>
+                    <p>Guide your business through digital transformation by adopting new techno0ies that enhance operations and customer experience.</p>
+                </div>
             </div>
         </div>
-                <p class="animated-text">At Insight Edge Consulting, we are dedicated to empowering small businesses to thrive in a competitive world. We believe that size should never be a barrier to success, and that’s why we tailor our consulting services specifically for small companies and startups. Our mission is to provide the strategic insights and innovative solutions that drive growth, streamline operations, and unlock new opportunities—all without the hefty price tag of traditional consulting firms.
 
-                    We understand the unique challenges that small businesses face, from limited resources to navigating complex market dynamics. Our approach is hands-on and personalized, ensuring that every recommendation we make is actionable, impactful, and aligned with your business goals. Whether you’re looking to optimize processes, explore new markets, or simply need a fresh perspective, Insight Edge Consulting is here to partner with you every step of the way.
-                    
-                    Let’s transform your vision into reality, one strategic move at a time. Because at Insight Edge, your success is our success.</p>
-            </div>
-        </section>
-
-        <section id="services" class="section">
-            <div class="grid-overlay"></div>
-            <div class="text-content">
-                <div class="center-title">
-                    <div class="stage">
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                        <div class="layerServices"></div>
-                    </div></div>
-                <p class="animated-text">
-                    At Insight Edge Consulting, we specialize in providing tailored consulting services that empower small businesses to reach their full potential. Our team of experienced consultants works closely with clients to develop innovative strategies that drive growth, optimize processes, and navigate complex business challenges. We look for passionate, driven businesses that are ready to take the next step in their journey. Below are some of the key services we offer:
-                </p>
-                <h2 class="animated-text">Business Strategy Development</h2>
-                <p class="animated-text">
-                    We help you develop a clear, actionable strategy that aligns with your business goals. Our strategic planning services are customized to your specific needs, ensuring a roadmap to sustainable success.
-                </p>
-        
-                <h2 class="animated-text">Market Analysis and Research</h2>
-                <p class="animated-text">
-                    Insight Edge provides in-depth market research and analysis to help your business identify opportunities, understand competition, and make data-driven decisions that propel you forward.
-                </p>
-        
-                <h2 class="animated-text">Process Optimization</h2>
-                <p class=" animated-text">
-                    Efficiency is at the heart of every successful business. We analyze your current processes and offer optimization strategies that reduce costs, improve productivity, and enhance operational performance.
-                </p>
-        
-                <h2 class="animated-text">Digital Transformation</h2>
-                <p class="animated-text">
-                    Stay ahead of the curve with our digital transformation services. We guide your business through the adoption of new technologies that enhance operations, improve customer experiences, and increase your competitive advantage.
-                </p>
-        
-                <h2 class="animated-text">Financial Planning and Analysis</h2>
-                <p class="animated-text">
-                    Insight Edge offers expert financial planning services that help you make smart financial decisions. We provide budgeting, forecasting, and financial modeling to ensure your business is well-prepared for growth.
-                </p>
-        
-                <h2 class="animated-text">Branding and Marketing Strategy</h2>
-                <p class="animated-text">
-                    We craft impactful branding and marketing strategies that resonate with your target audience, enhance brand visibility, and drive growth. Our approach ensures your brand stands out in the marketplace.
-                </p>
-        
-                <h2 class="service-title animated-text">Risk Management and Compliance</h2>
-                <p class="animated-text">
-                    Navigate the complexities of regulatory requirements with confidence. Our risk management and compliance services help you identify potential risks and develop strategies to mitigate them.
-                </p>
-        
-        
-                </p>
-            </div>
-        </section>
-
-        <section id="staff" class="section">
-            <div class="grid-overlay"></div>
-            <div class="text-content">
-                <h1 class="animated-text">Meet Our Staff</h1>
-                <div class="staff-grid">
-                    <div class="staff-member">
-                        <img src="assets/aiden picture.png" alt="Staff Member 1" class="responsive-img">
-                        <h2 class="animated-text">Aiden Mertzel</h2>
-                        <p class="animated-text">President & Founder</p>
-                    </div>
-                    <div class="staff-member">
-                        <img src="assets/GowriShankarBiju.JPG" alt="Staff Member 2">
-                        <h2 class="animated-text">Gowri Biju</h2>
-                        <p class="animated-text">Vice President</p>
-                    </div>
-                    <div class="staff-member">
-                     
-
-                    </div>
+        <div class="w3-row-padding w3-center w3-margin-top">
+            <div class="w3-col m6">
+                <div class="w3-card-4 w3-white w3-padding w3-hover-shadow">
+                    <h3 class="w3-wide">Financial Planning and Analysis</h3>
+                    <p>Expert financial planning to help you make smart decisions with budgeting, forecasting, and financial modeling for growth.</p>
                 </div>
             </div>
-        </section>
-
-        <section id="apply" class="section">
-            <div class="grid-overlay"></div>
-            <div class="text-content">
-                <h1 class="animated-text">Apply to Join Us</h1>
-                <p class="animated-text">We're always looking for talented individuals to join our team...</p>
-                <a href="https://forms.gle/5tpi43in7n7bD5Ju7" class="cta-button">Apply Now</a>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="grid-overlay"></div>
-            <div class="text-content"></div>          
-                <h1 class="animated-text">Contact Us</h1>
-                <div class="letter-image">
-                    <div class="animated-mail">
-                        <div class="back-fold"></div>
-                        <div class="letter">
-                            <div class="letter-border"></div>
-                            <div class="letter-title"></div>
-                            <div class="letter-context"></div>
-                            <div class="letter-stamp">
-                                <div class="letter-stamp-inner"></div>
-                            </div>
-                        </div>
-                        <div class="top-fold"></div>
-                        <div class="body"></div>
-                        <div class="left-fold"></div>
-                    </div>
-                    <div class="shadow"></div>
+            <div class="w3-col m6">
+                <div class="w3-card-4 w3-white w3-padding w3-hover-shadow">
+                    <h3 class="w3-wide">Branding and Marketing Strategy</h3>
+                    <p>Craft impactful branding and marketing strategies to enhance visibility and drive growth.</p>
                 </div>
-                <a href="mailto:cal.insightedge@gmail.com" class="cta-button">Get in Touch</a>
             </div>
-        </section>
+        </div>
+
+        <div class="w3-row-padding w3-center w3-margin-top">
+            <div class="w3-col m12">
+                <div class="w3-card-4 w3-white w3-padding w3-hover-shadow">
+                    <h3 class="w3-wide">Risk Management and Compliance</h3>
+                    <p>Navigate regulatory requirements confidently with our risk management and compliance strategies.</p>
+                </div>
+            </div>
+         </div>
+        </div>
     </div>
+</div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot-outline"></div>
-    <div class="cursor-dot"></div>
 
-    <!-- Hexagon Background -->
-    <div id="jsi-hex-container" class="container"></div>
 
-    <!-- Walking Eye Buddy -->
-    <div id="eye-buddy" class="eye-buddy"></div>
+  <section id="staff" class="w3-container w3-padding-64 staff-section">
+    <div class="w3-content staff-header">
+        <div class="w3-sand w3-grayscale w3-large">
+        <h1>Meet Our Team</h1>
+        <p>Our dedicated professionals drive success at Insight Edge Consulting.</p>
+    </div>
+    <div class="w3-row-padding staff-grid">
+        <div class="w3-col m4 staff-member">
+            <img src="assets/aiden picture.png" alt="Aiden Mertzel">
+            <h2>Aiden Mertzel</h2>
+            <p>President & Founder</p>
+        </div>
+        <div class="w3-col m4 staff-member">
+            <img src="assets/GowriShankarBiju.JPG" alt="Gowri Biju">
+            <h2>Gowri Biju</h2>
+            <p>Vice President</p>
+        </div>
+        <!-- Add more staff members as needed -->
+    </div>
+</div>
+</section>
 
-    <!-- Link to your JavaScript file -->
-    <script src="main.js"></script>
+
+  <div class="w3-container" id="apply">
+    <div class="w3-content" style="max-width:700px">
+      <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">APPLY TO JOIN US</span></h5>
+      <a href="https://forms.gle/5tpi43in7n7bD5Ju7" class="apply-button">Apply Now</a>
+    </div>
+  </div>
+
+  <div class="w3-container" id="contact">
+    <div class="w3-content" style="max-width:700px">
+      <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">CONTACT US</span></h5>
+      <div class="letter-image" onclick="window.location.href='mailto:cal.insightedge@gmail.com'">
+        <div class="animated-mail">
+            <div class="back-fold"></div>
+            <div class="letter">
+                <div class="letter-border"></div>
+                <div class="letter-title"></div>
+                <div class="letter-context"></div>
+                <div class="letter-stamp"></div>
+            </div>
+            <div class="top-fold"></div>
+            <div class="body"></div>
+            <div class="left-fold"></div>
+        </div>
+        <div class="shadow"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Powered by Insight Edge Consulting</p>
+</footer>
+
+<script src="scripts.js"></script>
 </body>
-
 </html>
